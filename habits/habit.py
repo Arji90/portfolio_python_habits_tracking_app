@@ -170,7 +170,8 @@ class Habit:
 
         elif self.__periodicity__ == self.const.get_periodicity_weekly():
             emergency_break = 0 # just in case
-            monday = time_handler.get_start_of_week(yesterday)
+            # fix: if today == monday, calculation of breaks would skip last week with old version
+            monday = time_handler.get_start_of_week(yesterday) if today.weekday() != 0 else today
             # start counting the monday after last interaction because it should already be calculated
             # sideeffect: the week it is created counts as 'trial' and is not counted into breaks
             last_interaction_date = time_handler.get_start_of_week(last_interaction_date) + timedelta(days=7)
