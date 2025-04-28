@@ -17,12 +17,12 @@ __expected_daily_periodicity__ = __config__.get('Periodicity', 'daily') if __con
 __expected_weekly_periodicity__ = __config__.get('Periodicity', 'weekly') if __config__.has_option('Periodicity', 'weekly') else 1
 
 # originally only 14 days, but the feedback explicitly states 4 weeks for the tests as well
-__date_test_start__ = datetime.now() - timedelta(days=28)
+__expected_days_between__ = 28
+__expected_weeks_between__ = int(__expected_days_between__ / 7)
+__date_test_start__ = datetime.now() - timedelta(days=__expected_days_between__)
 __date_test_end__ = datetime.now()
 __expected_start_of_day__ = __date_test_end__.replace(hour=0, minute=0, second=0, microsecond=0)
 __expected_start_of_week__ = __expected_start_of_day__ - timedelta(days=__expected_start_of_day__.weekday())
-__expected_days_between__ = 28
-__expected_weeks_between__ = 4
 
 __date_last_month__ = time_handler.get_last_month(datetime.now())
 
@@ -168,7 +168,7 @@ def test_habit_autoupdating():
             if current_habit.get_id() == 1:
                 assert breaks_sum == __expected_days_between__ - 1 # -1 for no break for current day
             else:
-                assert breaks_sum == __expected_weeks_between__ + 1 # -1 for no break for current day and +2 from history
+                assert breaks_sum == __expected_weeks_between__ + 1 # -1 for no break for current week and +2 from history
     else:
         raise Exception('Habits is not in testing-mode, something went wrong')
 
