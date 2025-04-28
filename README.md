@@ -159,3 +159,14 @@ here you can select the habit you want to see the details of
   - usage on private servers for personal use, for example implemented into smart-home-systems
   - implementation into an API for app-usage
 - printing the code out for an interesting wallpaper
+
+## ideas for further development
+these are just ideas for potential implementations (will most likely not implement)
+- authorisation handling for users and admin-users, implementing restrictions based on the authorisations
+- api for habit analytics over all habits in the DB to create statistics
+- firebase implementation for notifications if an app is planed for it
+  - AI implementation for targeted notifications based on check/break behaviour 
+- auto-update for habits if an instance exist while the clock hits 00:00
+- auto-safe all habits when the user is changed or the program is existed (not implemented because it is not necessary)
+- more sorted get_habits_by... functions like: best habit development (past more, not fewer breaks)
+- better interface like website or app
