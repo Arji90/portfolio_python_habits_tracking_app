@@ -1,15 +1,15 @@
 # Habits App
 ## Setup
 ### Python
-this app is made in using Python 3.13.1.
+this app is made in using Python 3.13.1
 
-if issues occur while you are using a different version, please try the version mentioned.
+if issues occur while you are using a different version, please try the version mentioned
 
-for more information and an installation guide, please visit: [python](https://www.python.org/).
+for more information and an installation guide, please visit: [python](https://www.python.org/)
 
 ### Properties
 to overwrite the given properties, create a 'habits.properties' file
-in the root of the project.
+in the root of the project
 
 the default properties are defines as follows:
 ```
@@ -35,7 +35,8 @@ will cause the program to stop working!
 ### Setup databases with example data (relevant for the tutor)
 to set up the databases with the required example-data, please execute **habits_test_db_entries.py**
 
-the script will display a warning that it will delete the 2 databases (if they exist) and replace them with the example-content.
+the script will display a warning that it will delete the 2 databases (if they exist) and replace them with 
+the example-content
 
 note: please execute this AFTER editing the habits.properties file to prevent errors
 
@@ -46,11 +47,11 @@ python ./habits_test_db_entries.py
 ### Automated testing
 the written tests in the test_handler are based on pytest 8.3.5
 
-the tests use their own habits created from the current date to test the calculations accurately.
+the tests use their own habits created from the current date to test the calculations accurately
 
-if issues occur while you are using a different version, please try the version mentioned.
+if issues occur while you are using a different version, please try the version mentioned
 
-for more information and an installation guide, please visit: [pytest](https://docs.pytest.org/).
+for more information and an installation guide, please visit: [pytest](https://docs.pytest.org/)
 
 ## Start-up
 ### Starting the terminal
@@ -58,7 +59,7 @@ to start the terminal simply execute **habits_terminal_interface.py**
 ```bash
 python ./habits_terminal_interface.py
 ```
-interactions are solly done by the terminal, all options the user has are displayed before the input is expected.
+interactions are solly done by the terminal, all options the user has are displayed before the input is expected
 
 ### Starting automated tests
 To start the automated tests, just call pytest in the root of the project
@@ -69,12 +70,49 @@ or alternatively this
 ```bash
 python -m pytest
 ```
-if pytest does not have an alias yet.
+if pytest does not have an alias yet
 
 ### Using habits_handler separately
-import the habits_handler and initialize it with the class Habits().
+import the habits_handler and initialize it with the class Habits()
 
-before handling any habits, a user-id has to be given by calling select_user().
+before handling any habits, a user-id has to be given by calling select_user()
+
+## Use-guide for habits_terminal_interface.py
+### create a user
+If you haven't started the app yet or haven't executed habits_test_db_entries.py you are asked to create a user
+
+Just add the name of the user to create it
+
+If you already have a user, you can create a new user on app-start by typing 'create' when asked to select a user
+
+Alternatively, if you have selected a user, and you are in the main-menu, select the user-menu (1), then select 
+'create a new user' (1) to create a new user
+
+### create a habit
+You need a user to create a habit
+
+once you are in the main-menu, select the habits-menu (2) and select 'create a new habit' (1)
+
+you are asked to enter a title (note: entering nothing, 'back' or 'exit' will lead to a warning and the 
+request to enter a valid title)
+
+after entering the title, you are asked to select the periodicity (1/2)
+
+and lastly you can add an optional description for the habit to enter details, this can be left empty
+
+### marking (checking) a habit as donne
+You need a user and at least one habit
+
+once you are in the main-menu, select the habits-menu (2) and select 'mark your habit as done' (4)
+
+here you can select the habit you want to 'check'
+
+### getting details about a habit
+You need a user and at least one habit
+
+once you are in the main-menu, select the habits-menu (2) and select 'display the details of your habits' (5)
+
+here you can select the habit you want to see the details of
 
 ## Features
 ### habits_terminal_interface.py (ui)
